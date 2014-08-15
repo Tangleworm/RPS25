@@ -1,0 +1,1 @@
+An implementation of http://www.umop.com/rps25.htm for Android. Mostly for practicing how to code.
