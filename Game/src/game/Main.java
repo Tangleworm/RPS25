@@ -18,18 +18,33 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO turn this bad pseudocode into good actual code
 		/**
-		 * If args: Take args as player choice (rps25 <name> <option>) and run
-		 * game against AI If no args: Show Main Menu: Play, Help, Detail <arg>
-		 * Play: Prompt the player to enter their name Prompt if the player
-		 * wants to play against the computer or a friend If computer, generate
-		 * computer choice If friend, blank the whole screen, ask friend for
-		 * name and choice battle() and compare results Print the winner and how
-		 * they won Keep a running tally of wins Ask if the user wants to play
-		 * again If so, loop If not, exit to main menu Help: Print a statement
-		 * about how to play the game Exit to main menu Detail <arg>: If arg:
-		 * Give details about that choice Exit to main menu If no arg: Print all
-		 * the choices Prompt for one of the choices Gives details on how that
-		 * choice Exit to main menu
+		 * If args:
+-			Take args as player choice (rps25 <name> <option>) and run game against AI
+-			If no args:
+-			Show Main Menu: Play, Help, Detail <arg>
+-			Play:
+-				Prompt the player to enter their name
+-				Prompt if the player wants to play against the computer or a friend
+-				If computer, generate computer choice
+-				If friend, blank the whole screen, ask friend for name and choice
+-				battle() and compare results
+-				Print the winner and how they won
+-				Keep a running tally of wins
+-				Ask if the user wants to play again
+-				If so, loop
+-				If not, exit to main menu
+-			Help:
+-				Print a statement about how to play the game
+-				Exit to main menu
+-			Detail <arg>:
+-				If arg:
+-				Give details about that choice
+-				Exit to main menu
+-				If no arg:
+-				Print all the choices
+-				Prompt for one of the choices
+-				Gives details on how that choice
+-				Exit to main menu
 		 */
 
 		// TODO make asking for help a thing

@@ -43,8 +43,4 @@ public enum Choice {
 		return id;
 	}
 
-	public static boolean contains(Choice choice) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }
