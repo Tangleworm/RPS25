@@ -1,5 +1,10 @@
 package game;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
+
 /**
  * @author Justin Wang
  * Contains all the valid choices for RPS25.
@@ -34,9 +39,16 @@ public enum Choice {
 	GUN (1);
 	
 	private int id; // the number of the choice
+	private static final List<Choice> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+	private static final int SIZE = VALUES.size();
+	private static final Random RANDOM = new Random();
 	
 	Choice(int number){
 		this.id = number;
+	}
+	
+	public static Choice randomChoice() {
+	    return VALUES.get(RANDOM.nextInt(SIZE));
 	}
 	
 	public int id(){

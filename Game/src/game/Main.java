@@ -18,6 +18,8 @@ public class Main {
     private static int winner;
     private static int player1Wins = 0;
     private static int player2Wins = 0;
+    private static int youWins = 0;
+    private static int cpuWins = 0;
 
     public static void main(String[] args) {
         // TODO turn this bad pseudocode into good actual code
@@ -107,13 +109,42 @@ public class Main {
                 System.out.println();
             } else if (input.startsWith("O")) {
                 System.out.println("One-player mode selected.");
-                break;
+                player2Choice = computerOpponent();
+                while (true) {
+                    System.out.println("Enter your choice.");
+                    try {
+                        // See if that was a valid choice
+                        player1Choice = Choice.valueOf(user_input.next().toUpperCase());
+                        break;
+                    } catch (IllegalArgumentException e) {
+                        // Try again!
+                        System.out.println("That wasn't a valid choice; try again. You can enter H for help.");
+                    }
+                }
+                System.out.println("YOU> " + player1Choice + " VS " + player2Choice + " <CPU");
+                winner = battle(player1Choice, player2Choice);
+                // TODO make this more flashy, print how the player won
+                if (winner == 0) {
+                    System.out.println("The battle is a tie!");
+                } else if (winner == 1) {
+                    System.out.println("A winner is you with " + player1Choice + "!");
+                    youWins++;
+                } else {
+                    System.out.println("The computer picked " + player2Choice + "! You lose!");
+                    cpuWins++;
+                }
+                System.out.println();
+                System.out.println("The current score is " + youWins + "-" + cpuWins + ".");
+                System.out.println();
             } else if (input.startsWith("H")) {
-                System.out.println("HELP");
-                break;
+                System.out.println("RPS25 is a game similar to Rock, Paper, Scissors.");
+                System.out.println("What sets it apart is that there are not 3, but 25 symbols to choose from.");
+                System.out.println("Each symbol beats the next 12 and is beaten by the previous 12.");
+                System.out.println("Do your best to guess your opponent's next move!");
+                System.out.println("To see which symbols you can choose from, enter [D]etails.");
+                System.out.println("Original concept by www.umop.com!");
             } else if (input.startsWith("D")) {
-                System.out.println("Details...?");
-                break;
+                System.out.println("DETAILS, COMING SOON TO A THEATRE NEAR YOu");
             } else if (input.startsWith("Q")) {
                 System.out.println("Terminating. Have a nice day!");
                 break;
@@ -172,10 +203,9 @@ public class Main {
      * 
      * @return a valid RPS25 option
      */
-    private static Choice computerOpponent(/* personality parameter? */) {
-        // TODO Randomly pick one of the 25 choices (or create personalities
-        // that have a bias to certain choices)
-        return Choice.ROCK; // HOW PREDICTABLE
+    private static Choice computerOpponent() {
+        // TODO add a personality parameter
+        return Choice.randomChoice();
     }
 
     /**
